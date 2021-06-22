@@ -1,5 +1,6 @@
 plugins {
     id("com.github.ben-manes.versions").version(Versions.versions_plugin)
+     `maven-publish`
 }
 
 buildscript {
@@ -14,8 +15,14 @@ buildscript {
 }
 
 plugins.apply("kotlin")
-plugins.apply("maven")
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
 dependencies {
     "implementation"("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     "implementation"("com.squareup.okio:okio:${Versions.okio}")
