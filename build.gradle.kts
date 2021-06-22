@@ -4,9 +4,7 @@ plugins {
 
 buildscript {
     repositories {
-        mavenLocal()
-        jcenter()
-        maven("https://plugins.gradle.org/m2/")
+        mavenCentral()
     }
 
     dependencies {
